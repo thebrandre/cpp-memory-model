@@ -1,0 +1,12 @@
+{
+  "name": "cppmemorymodel",
+  "version-string": "1.0.0",
+  "dependencies": [
+    "catch2",
+    "benchmark",
+    "fmt",
+    "spdlog",
+    "tbb"
+  ],
+  "builtin-baseline": "afa12e7292fb47771e619675d7915645fe0adb1b"
+}
