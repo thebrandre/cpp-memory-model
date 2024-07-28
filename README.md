@@ -43,6 +43,7 @@
 * [Repairing sequential consistency in C/C++11, Ori Lahav et al. (2017)](https://doi.org/10.1145/3062341.3062352) [PDF](https://plv.mpi-sws.org/scfix/paper.pdf)
 * [Common Compiler Optimisations are Invalid in the C11 Memory Model and what we can do about it](https://doi.org/10.1145/2676726.2676995) [PDF](https://people.mpi-sws.org/~viktor/papers/popl2015-c11comp.pdf)
 * [How to miscompile programs with "benign" data races, Boehm, Hans-J. (2011)](https://doi.org/10.5555/2001252.2001255) [PDF](https://www.usenix.org/legacy/events/hotpar11/tech/final_files/Boehm.pdf)
+* [The C11 and C++11 Concurrency Model, Mark John Batty (2014)](https://www.cs.kent.ac.uk/people/staff/mjb211/docs/toc.pdf)
 
 
 ## Talks
