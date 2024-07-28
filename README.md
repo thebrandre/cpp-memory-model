@@ -48,12 +48,13 @@
 
 ## Talks
 
-* [ACCU 2017, Atomic's memory orders, what for? - Frank Birbacher](https://youtu.be/A_vAG6LIHwQ?si=XS34jxBAIknexdAf)
-* [C++ and Beyond 2012: Herb Sutter - atomic Weapons 1 of 2](https://youtu.be/A8eCGOqgvH4?si=5twtmEUeUXZySROY)
-* [C++ and Beyond 2012: Herb Sutter - atomic Weapons 2 of 2](https://youtu.be/KeLBd2EJLOU?si=b6pVNZHmdyCnnMqG)
-* [CppCon 2014: Herb Sutter "Lock-Free Programming (or, Juggling Razor Blades), Part I"](https://youtu.be/c1gO9aB9nbs?si=irIUfhni2E7rDw-z)
-* [CppCon 2014: Herb Sutter "Lock-Free Programming (or, Juggling Razor Blades), Part II"](https://youtu.be/CmxkPChOcvw?si=S-vU5GZArw20CjB3)
-* [CppCon 2017: Fedor Pikus "C++ atomics, from basic to advanced. What do they really do?"](https://youtu.be/ZQFzMfHIxng?si=KtmNppMZEy9YbvM9)
-* [CppCon 2016: Hans Boehm *Using weakly ordered C++ atomics correctly*](https://youtu.be/M15UKpNlpeM?si=p3Gfdy11SgltdoEs)
-* [The Foundation of C++ Atomics: The Knowledge You Need to Correctly Use C++ Atomics - Filipe Mulonde](https://youtu.be/BfEnMRWLjgQ?si=p9S67ehBLtT6GdjL)
-* [Pavel Yosifovich, Concurrency and the C++ Memory Model](https://youtu.be/NZ_ncor_Lj0?si=Rn9qDkL9EOHw0CuQ)
+* [ACCU 2017: Frank Birbacher *Atomic's memory orders, what for?*](https://youtu.be/A_vAG6LIHwQ)
+* [C++ and Beyond 2012: Herb Sutter  *Atomic Weapons 1 of 2*](https://youtu.be/A8eCGOqgvH4)
+* [C++ and Beyond 2012: Herb Sutter  *Atomic Weapons 2 of 2*](https://youtu.be/KeLBd2EJLOU)
+* [CppCon 2014: Herb Sutter *Lock-Free Programming (or, Juggling Razor Blades), Part I*](https://youtu.be/c1gO9aB9nbs)
+* [CppCon 2014: Herb Sutter *Lock-Free Programming (or, Juggling Razor Blades), Part II*](https://youtu.be/CmxkPChOcvw)
+* [CppCon 2017: Fedor Pikus *C++ atomics, from basic to advanced. What do they really do?*](https://youtu.be/ZQFzMfHIxng)
+* [CppCon 2016: Hans Boehm *Using weakly ordered C++ atomics correctly*](https://youtu.be/M15UKpNlpeM)
+* [CppCon 2021: Filipe Mulonde *The Foundation of C++ Atomics: The Knowledge You Need to Correctly Use C++ Atomics*](https://youtu.be/BfEnMRWLjgQ)
+* [Pavel Yosifovich *Concurrency and the C++ Memory Model*](https://youtu.be/NZ_ncor_Lj0)
+* [CppCon 2020: Paul E. McKenney & Hans Boehm *A Relaxed Guide to memory_order_relaxed*](https://youtu.be/cWkUqK71DZ0)
