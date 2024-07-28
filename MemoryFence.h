@@ -10,7 +10,7 @@
 #if defined(_MSC_VER) && (defined(_M_AMD64) || defined(_M_IX86))
 #include <intrin.h>
 #define MemoryFence _mm_mfence
-#elif defined(__GNUC__) && (defined(__x86_64__) || defined(__i386__))
+#elif __has_builtin(__builtin_ia32_mfence)
 #define MemoryFence __builtin_ia32_mfence
 #else
 #define MemoryFence void
