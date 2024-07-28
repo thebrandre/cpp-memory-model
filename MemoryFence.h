@@ -13,5 +13,6 @@
 #elif __has_builtin(__builtin_ia32_mfence)
 #define MemoryFence __builtin_ia32_mfence
 #else
-#define MemoryFence void
+#include <atomic>
+#define MemoryFence []() { std::atomic_thread_fence(std::memory_order_seq_cst); }
 #endif
