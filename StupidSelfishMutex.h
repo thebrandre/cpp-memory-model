@@ -7,7 +7,7 @@ class StupidSelfishSpinMutex {
 public:
   bool try_lock() {
     return Locked.test_and_set(std::memory_order_acquire);
-    // return Locked.exchange(true, std::memory_order_release);
+    // return Locked.exchange(true, std::memory_order_acquire);
   }
   void lock() {
     while (try_lock())
