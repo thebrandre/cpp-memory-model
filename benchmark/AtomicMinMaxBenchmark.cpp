@@ -12,7 +12,7 @@ static constexpr int ItemRangEnd = 1 << 12;
 // https://godbolt.org/z/xPTh7Tcns
 // difference only on ARM https://godbolt.org/z/EYcGx6zdx
 
-static void BM_AtomicMinMax(benchmark::State &State, std::memory_order Order) {
+static void BM_AtomicMinMax(benchmark::State &State, const std::memory_order Order) {
   const int NumItems = static_cast<int>(State.range(0));
   std::atomic<int> AtomicVariable{};
 
@@ -25,9 +25,8 @@ static void BM_AtomicMinMax(benchmark::State &State, std::memory_order Order) {
   if (AtomicVariable.load(std::memory_order_relaxed) != NumItems - 1)
     std::abort();
 
-  State.counters["duration_per_operation"] =
-      benchmark::Counter(static_cast<double>(State.iterations()) * State.range(0),
-                         benchmark::Counter::kIsRate | benchmark::Counter::kInvert);
+  State.counters["duration_per_operation"] = benchmark::Counter(
+      static_cast<double>(State.range(0)), benchmark::Counter::kIsIterationInvariantRate | benchmark::Counter::kInvert);
   State.SetComplexityN(State.range(0));
 }
 
@@ -52,9 +51,8 @@ static void BM_RegularMinMax(benchmark::State &State) {
   if (AutomaticVariable != NumItems - 1)
     std::abort();
 
-  State.counters["duration_per_operation"] =
-      benchmark::Counter(static_cast<double>(State.iterations()) * State.range(0),
-                         benchmark::Counter::kIsRate | benchmark::Counter::kInvert);
+  State.counters["duration_per_operation"] = benchmark::Counter(
+      static_cast<double>(State.range(0)), benchmark::Counter::kIsIterationInvariantRate | benchmark::Counter::kInvert);
   State.SetComplexityN(State.range(0));
 }
 

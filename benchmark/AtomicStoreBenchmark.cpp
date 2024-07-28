@@ -16,9 +16,8 @@ static void BM_AtomicStore(benchmark::State &State, std::memory_order Order) {
       AtomicVariable.store(i, Order);
   }
 
-  State.counters["duration_per_operation"] =
-      benchmark::Counter(static_cast<double>(State.iterations()) * State.range(0),
-                         benchmark::Counter::kIsRate | benchmark::Counter::kInvert);
+  State.counters["duration_per_operation"] = benchmark::Counter(
+      static_cast<double>(State.range(0)), benchmark::Counter::kIsIterationInvariantRate | benchmark::Counter::kInvert);
   State.SetComplexityN(State.range(0));
 }
 
@@ -44,9 +43,8 @@ static void BM_AtomicStoreFenced(benchmark::State &State) {
   }
 
   State.SetComplexityN(State.range(0));
-  State.counters["duration_per_operation"] =
-      benchmark::Counter(static_cast<double>(State.iterations()) * State.range(0),
-                         benchmark::Counter::kIsRate | benchmark::Counter::kInvert);
+  State.counters["duration_per_operation"] = benchmark::Counter(
+      static_cast<double>(State.range(0)), benchmark::Counter::kIsIterationInvariantRate | benchmark::Counter::kInvert);
 }
 
 BENCHMARK(BM_AtomicStoreFenced)->RangeMultiplier(2)->Range(ItemRangeBegin, ItemRangEnd)->Complexity(benchmark::o1);
