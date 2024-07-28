@@ -2,6 +2,7 @@
 target_sources(Benchmarks
         PRIVATE
         "AtomicMinMaxBenchmark.cpp"
+        "AtomicLoadBenchmark.cpp"
         "AtomicStoreBenchmark.cpp"
         "DekkersAlgorithmBenchmark.cpp")
 
