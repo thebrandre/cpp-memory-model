@@ -18,6 +18,7 @@
 * [Might fail in relaxed ordering (but not in x86's *total store order model*)](https://godbolt.org/z/99xfvfjP3) -- [at least one of the reader threads needs to fire](https://godbolt.org/z/n4d8f8ca5)
 * [sequenced before](https://godbolt.org/z/698G4Kxv4)
 * [atomic min/max in x86-64](https://godbolt.org/z/PjKjvfnGe) or [maybe weaker (no difference on x86)?](https://godbolt.org/z/r8TMzjea5)
+* [difference between std::atomic of and std::atomic_flag?](https://godbolt.org/z/Y1GGY1ox7)
 
 ## Resources
 
