@@ -22,10 +22,11 @@
 ## Resources
 
 * [intro.multithread](https://eel.is/c++draft/intro.multithread)
-	* [*Sequenced before*](https://eel.is/c++draft/intro.execution#def:sequenced_before) 
-	* [*inter-thread happens before*](https://eel.is/c++draft/intro.multithread#def:inter-thread_happens_before)
-	* [*happens before*](https://eel.is/c++draft/intro.multithread#def:happens_before)
+	* [*sequenced before*](https://eel.is/c++draft/intro.execution#def:sequenced_before)
 	* [*synchronizes with*](https://eel.is/c++draft/atomics.order)
+	* [*inter-thread happens before*](https://eel.is/c++draft/intro.multithread#def:inter-thread_happens_before)
+	* [*(simply/strongly) happens before*](https://eel.is/c++draft/intro.multithread#def:happens_before)
+	* [*modification order*](https://eel.is/c++draft/intro.races#def:modification_order)
 * [atomics.order](https://eel.is/c++draft/atomics.order)
 * [atomics.fences](https://eel.is/c++draft/atomics.fences)
 * [*Atomic minimum/maximum* (P0493R3)](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0493r3.pdf)
@@ -48,6 +49,8 @@
 * [*Cooperating Sequential Processes*, E.W. Dijkstra (1968)](https://doi.org/10.1007/978-1-4757-3472-0_2) [PDF](https://pure.tue.nl/ws/files/4279816/344354178746665.pdf)
 * [*The synchronization of independent processes*, L. Lamport, Acta Informatica 7, 15–34 (1976)](https://doi.org/10.1007/BF00265219) [PDF](https://lamport.azurewebsites.net/pubs/synchronization.pdf)
 * [*How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs*, L. Lamport, IEEE Transactions on Computers, vol. C-28, no. 9, pp. 690-691, Sept. 1979](https://doi.org/10.1109/TC.1979.1675439) [PDF](https://www.microsoft.com/en-us/research/uploads/prod/2016/12/How-to-Make-a-Multiprocessor-Computer-That-Correctly-Executes-Multiprocess-Programs.pdf)
+* [*A Primer on Memory Consistency and Cache Coherence* Daniel J. Sorin et al. (2011)](https://doi.org/10.1007/978-3-031-01733-9) [PDF](https://course.ece.cmu.edu/~ece847c/S15/lib/exe/fetch.php?media=part2_2_sorin12.pdf)
+* [*Revising the C++ memory model* (P0668R5)](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0668r5.html)
 
 ## Talks
 
