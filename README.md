@@ -11,10 +11,11 @@
 * [Producer/multiple consumers](https://godbolt.org/z/d3oY6hh1G)
 * [Dekker's algorithm with atomics vs fences](https://godbolt.org/z/YP4cY6zM1), where the latter is [probably](https://godbolt.org/z/xr8E3nMGG) correct?
 * [Dekker's algorithm failing with release/acquire](https://godbolt.org/z/GWY85ofE5)
+* [Dekker's algorithm simplified](https://godbolt.org/z/efonYcKr3)
 * [How memory order maps to x86-64 and ARM64 assembly](https://godbolt.org/z/oTff5aY67)
 * [How memory order maps to x86-64 and ARM64 assembly and optimizations](https://godbolt.org/z/drreTbhbr)
 * [How memory order may prevent auto vectorization](https://godbolt.org/z/31W9P8Y36)
-* [Might fail in relaxed ordering (but not in x86)](https://godbolt.org/z/99xfvfjP3) -- [at least one of the reader threads needs to fire](https://godbolt.org/z/n4d8f8ca5)
+* [Might fail in relaxed ordering (but not in x86's *total store order model*)](https://godbolt.org/z/99xfvfjP3) -- [at least one of the reader threads needs to fire](https://godbolt.org/z/n4d8f8ca5)
 * [sequenced before](https://godbolt.org/z/698G4Kxv4)
 * [atomic min/max in x86-64](https://godbolt.org/z/PjKjvfnGe) or [maybe weaker (no difference on x86)?](https://godbolt.org/z/r8TMzjea5)
 
@@ -40,11 +41,13 @@
 * [*C++ Concurrency in Action*, Anthony Williams, 2nd ed.](https://www.manning.com/books/c-plus-plus-concurrency-in-action-second-edition)
 * [*Revising atomic_shared_ptr for C++20* (P0718R2)](https://www.manning.com/books/c-plus-plus-concurrency-in-action-second-edition)
 * [Does lock xchg have the same behavior as mfence?](https://stackoverflow.com/a/50279772/75883571)
-* [Repairing sequential consistency in C/C++11, Ori Lahav et al. (2017)](https://doi.org/10.1145/3062341.3062352) [PDF](https://plv.mpi-sws.org/scfix/paper.pdf)
-* [Common Compiler Optimisations are Invalid in the C11 Memory Model and what we can do about it](https://doi.org/10.1145/2676726.2676995) [PDF](https://people.mpi-sws.org/~viktor/papers/popl2015-c11comp.pdf)
-* [How to miscompile programs with "benign" data races, Boehm, Hans-J. (2011)](https://doi.org/10.5555/2001252.2001255) [PDF](https://www.usenix.org/legacy/events/hotpar11/tech/final_files/Boehm.pdf)
-* [The C11 and C++11 Concurrency Model, Mark John Batty (2014)](https://www.cs.kent.ac.uk/people/staff/mjb211/docs/toc.pdf)
-
+* [*Repairing sequential consistency in C/C++11*, Ori Lahav et al. (2017)](https://doi.org/10.1145/3062341.3062352) [PDF](https://plv.mpi-sws.org/scfix/paper.pdf)
+* [*Common Compiler Optimisations are Invalid in the C11 Memory Model and what we can do about it*, Viktor Vafeiadis et al. (2015)](https://doi.org/10.1145/2676726.2676995) [PDF](https://people.mpi-sws.org/~viktor/papers/popl2015-c11comp.pdf)
+* [*How to miscompile programs with "benign" data races*, Hans-J. Boehm (2011)](https://doi.org/10.5555/2001252.2001255) [PDF](https://www.usenix.org/legacy/events/hotpar11/tech/final_files/Boehm.pdf)
+* [*The C11 and C++11 Concurrency Model*, Mark John Batty (2014)](https://www.cs.kent.ac.uk/people/staff/mjb211/docs/toc.pdf)
+* [*Cooperating Sequential Processes*, E.W. Dijkstra (1968)](https://doi.org/10.1007/978-1-4757-3472-0_2) [PDF](https://pure.tue.nl/ws/files/4279816/344354178746665.pdf)
+* [*The synchronization of independent processes*, L. Lamport, Acta Informatica 7, 15–34 (1976)](https://doi.org/10.1007/BF00265219) [PDF](https://lamport.azurewebsites.net/pubs/synchronization.pdf)
+* [*How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs*, L. Lamport, IEEE Transactions on Computers, vol. C-28, no. 9, pp. 690-691, Sept. 1979](https://doi.org/10.1109/TC.1979.1675439) [PDF](https://www.microsoft.com/en-us/research/uploads/prod/2016/12/How-to-Make-a-Multiprocessor-Computer-That-Correctly-Executes-Multiprocess-Programs.pdf)
 
 ## Talks
 
@@ -58,3 +61,4 @@
 * [CppCon 2021: Filipe Mulonde *The Foundation of C++ Atomics: The Knowledge You Need to Correctly Use C++ Atomics*](https://youtu.be/BfEnMRWLjgQ)
 * [Pavel Yosifovich *Concurrency and the C++ Memory Model*](https://youtu.be/NZ_ncor_Lj0)
 * [CppCon 2020: Paul E. McKenney & Hans Boehm *A Relaxed Guide to memory_order_relaxed*](https://youtu.be/cWkUqK71DZ0)
+* [CppCon 2016: JF Bastien *No Sane Compiler Would Optimize Atomics*](https://youtu.be/IB57wIf9W1k)
