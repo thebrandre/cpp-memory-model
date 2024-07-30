@@ -11,7 +11,7 @@
 * [Producer/multiple consumers](https://godbolt.org/z/d3oY6hh1G)
 * [Dekker's algorithm with atomics vs fences](https://godbolt.org/z/YP4cY6zM1), where the latter is [probably](https://godbolt.org/z/xr8E3nMGG) correct?
 * [Dekker's algorithm failing with release/acquire](https://godbolt.org/z/GWY85ofE5)
-* [Dekker's algorithm simplified](https://godbolt.org/z/efonYcKr3)
+* [Dekker's algorithm simplified](https://godbolt.org/z/qzsT3nG15)
 * [How memory order maps to x86-64 and ARM64 assembly](https://godbolt.org/z/oTff5aY67)
 * [How memory order maps to x86-64 and ARM64 assembly and optimizations](https://godbolt.org/z/drreTbhbr)
 * [How memory order may prevent auto vectorization](https://godbolt.org/z/31W9P8Y36)
