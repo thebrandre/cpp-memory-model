@@ -78,20 +78,18 @@ BENCHMARK_CAPTURE(BM_AtomicLoad, mfence, std::memory_order_seq_cst, &StoreSpamme
     ->Range(ItemRangeBegin, ItemRangEnd)
     ->Complexity(benchmark::o1);
 
-BENCHMARK_CAPTURE(BM_AtomicLoad, sequential_consistency_without_cache_invalidation, std::memory_order_seq_cst,
+BENCHMARK_CAPTURE(BM_AtomicLoad, sequential_consistency_separate_objects, std::memory_order_seq_cst,
                   &StoreSpammerSomewhereElse)
     ->RangeMultiplier(2)
     ->Range(ItemRangeBegin, ItemRangEnd)
     ->Complexity(benchmark::o1);
 
-BENCHMARK_CAPTURE(BM_AtomicLoad, acquire_without_cache_invalidation, std::memory_order_acquire,
-                  &StoreSpammerSomewhereElse)
+BENCHMARK_CAPTURE(BM_AtomicLoad, acquire_separate_objects, std::memory_order_acquire, &StoreSpammerSomewhereElse)
     ->RangeMultiplier(2)
     ->Range(ItemRangeBegin, ItemRangEnd)
     ->Complexity(benchmark::o1);
 
-BENCHMARK_CAPTURE(BM_AtomicLoad, mfence_without_cache_invalidation, std::memory_order_seq_cst,
-                  &StoreSpammerFenceSomewhereElse)
+BENCHMARK_CAPTURE(BM_AtomicLoad, mfence_separate_objects, std::memory_order_seq_cst, &StoreSpammerFenceSomewhereElse)
     ->RangeMultiplier(2)
     ->Range(ItemRangeBegin, ItemRangEnd)
     ->Complexity(benchmark::o1);
