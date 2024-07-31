@@ -80,9 +80,12 @@ TEST_CASE("multiple producer single consumer") {
       Values[WriteIndex] = i;
 
       // Publish results in order:
-      while (Size.compare_exchange_strong(WriteIndex, WriteIndex + 1, std::memory_order_release,
-                                          std::memory_order_relaxed))
-        ;
+      auto Expected = WriteIndex;
+      while (
+          !Size.compare_exchange_weak(Expected, WriteIndex + 1, std::memory_order_release, std::memory_order_relaxed)) {
+        std::this_thread::yield();
+        Expected = WriteIndex;
+      }
     }
   };
 
