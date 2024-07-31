@@ -3,22 +3,31 @@
 
 ## Samples
 
+### Basics
+
 * [Beware of the optimizer!](https://godbolt.org/z/rMGao4K1f)
-* [Synchronization with atomics and busy waiting](https://godbolt.org/z/sE7j9abKP) or [patient waiting](https://godbolt.org/z/nKnrds54W)
+* [Beware of of *sequenced before*](https://godbolt.org/z/698G4Kxv4)
+* [Message passing with release-acquire ordering](https://godbolt.org/z/4hbK7dx7K)
+* [Spinlock mutex](https://godbolt.org/z/GbzoKKnqf)
+* [How memory order maps to x86-64 and ARM64 assembly](https://godbolt.org/z/GbzoKKnqf)
+* [Sequential consistency: Dekker's algorithm simplified](https://godbolt.org/z/oe3svbWv1)
+
+### Exercise: producer-consumer communication
+
 * [Producer/consumer broken](https://godbolt.org/z/bh39zEdbM)
 * [Producer/consumer broken (no atomics)](https://godbolt.org/z/6r7z8rTrv)
 * [Producer/consumer fixed](https://godbolt.org/z/sEsa4h8sr)
 * [Producer/multiple consumers](https://godbolt.org/z/d3oY6hh1G)
+
+### Deep dive
+
 * [Dekker's algorithm with atomics vs fences](https://godbolt.org/z/YP4cY6zM1), where the latter is [probably](https://godbolt.org/z/xr8E3nMGG) correct?
 * [Dekker's algorithm failing with release/acquire](https://godbolt.org/z/GWY85ofE5)
-* [Dekker's algorithm simplified](https://godbolt.org/z/o6oshY7be)
-* [How memory order maps to x86-64 and ARM64 assembly](https://godbolt.org/z/oTff5aY67)
 * [How memory order maps to x86-64 and ARM64 assembly and optimizations](https://godbolt.org/z/drreTbhbr)
 * [How memory order may prevent auto vectorization](https://godbolt.org/z/31W9P8Y36)
 * [Might fail in relaxed ordering (but not in x86's *total store order model*)](https://godbolt.org/z/99xfvfjP3) -- [at least one of the reader threads needs to fire](https://godbolt.org/z/n4d8f8ca5)
-* [sequenced before](https://godbolt.org/z/698G4Kxv4)
 * [atomic min/max in x86-64](https://godbolt.org/z/PjKjvfnGe) or [maybe weaker (no difference on x86)?](https://godbolt.org/z/r8TMzjea5)
-* [difference between std::atomic of and std::atomic_flag?](https://godbolt.org/z/Y1GGY1ox7)
+* [difference between std::atomic of and std::atomic_flag? (at least with clang and gcc on Linux)](https://godbolt.org/z/Y1GGY1ox7)
 
 ## Resources
 
