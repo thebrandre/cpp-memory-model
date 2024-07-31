@@ -8,8 +8,8 @@
 * [Beware of the optimizer!](https://godbolt.org/z/rMGao4K1f)
 * [Beware of of *sequenced before*](https://godbolt.org/z/698G4Kxv4)
 * [Message passing with release-acquire ordering](https://godbolt.org/z/4hbK7dx7K)
-* [Spinlock mutex](https://godbolt.org/z/GbzoKKnqf)
-* [How memory order maps to x86-64 and ARM64 assembly](https://godbolt.org/z/GbzoKKnqf)
+* [Spinlock mutex](https://godbolt.org/z/zddsM5P3h)
+* [How memory order maps to x86-64 and ARM64 assembly](https://godbolt.org/z/oTff5aY67)
 * [Sequential consistency: Dekker's algorithm simplified](https://godbolt.org/z/oe3svbWv1)
 
 ### Exercise: producer-consumer communication
