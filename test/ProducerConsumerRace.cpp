@@ -11,12 +11,11 @@
 #include <vector>
 
 TEST_CASE("single producer single consumer") {
+  const auto N = GENERATE(23, 42, 100);
 
-  std::vector<int> Values;
+  std::vector<int> Values(N);
   std::atomic<std::uint64_t> Size;
 
-  const auto N = GENERATE(23, 42, 100);
-  Values.resize(N);
   std::latch Latch(2);
   int TotalSum{};
 
@@ -48,20 +47,17 @@ TEST_CASE("single producer single consumer") {
 }
 
 TEST_CASE("multiple producer single consumer") {
-
-  std::vector<int> Values;
+  const auto N = GENERATE(23, 42, 100);
+  std::vector<int> Values(N);
   std::atomic<std::uint64_t> NextWriteIndex;
   std::atomic<std::uint64_t> Size;
-
-  const auto N = GENERATE(23, 42, 100);
-  Values.resize(N);
   const int NumProducers = 2;
   std::latch Latch(1 + NumProducers);
   int TotalSum{};
 
   const auto Consumer = [&] {
     Latch.arrive_and_wait();
-    std::uint64_t i = 0; 
+    std::uint64_t i = 0;
     while (i < Values.size()) {
       if (i < Size.load(std::memory_order_acquire)) {
         TotalSum += Values[i];
@@ -95,15 +91,14 @@ TEST_CASE("multiple producer single consumer") {
     Consumer();
   }
   REQUIRE(TotalSum == N * (N + 1) / 2);
+  REQUIRE(Size.load() >= N);
 }
 
 TEST_CASE("single producer multiple consumers") {
-
-  std::vector<int> Values;
+  const auto N = GENERATE(23, 42, 100);
+  std::vector<int> Values(N);
   std::atomic<std::uint64_t> Size;
 
-  const auto N = GENERATE(23, 42, 100);
-  Values.resize(N);
   std::latch Latch(4);
   std::atomic<int> TotalSum{};
   std::atomic<std::uint64_t> ConsumeIndex;
@@ -111,7 +106,7 @@ TEST_CASE("single producer multiple consumers") {
   const auto Consumer = [&] {
     Latch.arrive_and_wait();
     int Result = 0;
-    std::uint64_t i = 0; 
+    std::uint64_t i = 0;
     while (i < Values.size()) {
       if (i < Size.load(std::memory_order_acquire) &&
           ConsumeIndex.compare_exchange_weak(i, i + 1, std::memory_order_relaxed, std::memory_order_relaxed))
