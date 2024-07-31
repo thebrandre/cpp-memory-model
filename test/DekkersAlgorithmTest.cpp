@@ -24,7 +24,8 @@ public:
 };
 
 TEMPLATE_TEST_CASE("Dekkers Algorithm", "[atomics]", DekkersAlgorithm, DekkersAlgorithmFences,
-                   MutexWrapper<v1::StupidSelfishSpinMutex>, MutexWrapper<v2::StupidSelfishSpinMutex>) {
+                   MutexWrapper<v1::StupidSelfishSpinMutex>, MutexWrapper<v2::StupidSelfishSpinMutex>,
+                   MutexWrapper<v3::StupidSelfishSpinMutex>) {
   const auto NumIncrements = GENERATE(100, 1000, 10000);
 
   const auto FibonacciIterationsMod97 = [](std::span<std::uint64_t, 2> x, int Count) {
