@@ -1,4 +1,5 @@
 #include "DekkersAlgorithm.h"
+#include "StupidSelfishMutex.h"
 
 #include <catch2/catch_template_test_macros.hpp>
 #include <catch2/catch_test_macros.hpp>
@@ -13,12 +14,20 @@
 #include <thread>
 #include <vector>
 
+template <typename MutexType> struct MutexWrapper {
+private:
+  MutexType Mutex;
 
+public:
+  void lock([[maybe_unused]] int Slot) { Mutex.lock(); }
+  void unlock([[maybe_unused]] int Slot) { Mutex.unlock(); }
+};
 
-TEMPLATE_TEST_CASE("Dekkers Algorithm", "[atomics]", DekkersAlgorithm, DekkersAlgorithmFences) {
+TEMPLATE_TEST_CASE("Dekkers Algorithm", "[atomics]", DekkersAlgorithm, DekkersAlgorithmFences,
+                   MutexWrapper<v1::StupidSelfishSpinMutex>, MutexWrapper<v2::StupidSelfishSpinMutex>) {
   const auto NumIncrements = GENERATE(100, 1000, 10000);
 
-   const auto FibonacciIterationsMod97 = [](std::span<std::uint64_t, 2> x, int Count) {
+  const auto FibonacciIterationsMod97 = [](std::span<std::uint64_t, 2> x, int Count) {
     for (int i = 0; i < Count; ++i) {
       const auto Temp = (x[0] + x[1]) % 97;
       x[0] = x[1];
