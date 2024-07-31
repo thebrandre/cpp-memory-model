@@ -10,7 +10,7 @@
 * [Message passing with release-acquire ordering](https://godbolt.org/z/4hbK7dx7K)
 * [Spinlock mutex](https://godbolt.org/z/zddsM5P3h)
 * [How memory order maps to x86-64 and ARM64 assembly](https://godbolt.org/z/oTff5aY67)
-* [Sequential consistency: Dekker's algorithm simplified](https://godbolt.org/z/oe3svbWv1)
+* [Sequential consistency: Dekker's algorithm simplified (This demo intentionally fails due to weak/release-acquire order!)](https://godbolt.org/z/oe3svbWv1)
 
 ### Exercise: producer-consumer communication
 
@@ -27,7 +27,6 @@
 * [How memory order may prevent auto vectorization](https://godbolt.org/z/31W9P8Y36)
 * [Might fail in relaxed ordering (but not in x86's *total store order model*)](https://godbolt.org/z/99xfvfjP3) -- [at least one of the reader threads needs to fire](https://godbolt.org/z/n4d8f8ca5)
 * [atomic min/max in x86-64](https://godbolt.org/z/PjKjvfnGe) or [maybe weaker (no difference on x86)?](https://godbolt.org/z/r8TMzjea5)
-* [difference between std::atomic of and std::atomic_flag? (at least with clang and gcc on Linux)](https://godbolt.org/z/Y1GGY1ox7)
 
 ## Resources
 
