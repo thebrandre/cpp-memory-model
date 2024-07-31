@@ -52,6 +52,9 @@
 * [*How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs*, L. Lamport, IEEE Transactions on Computers, vol. C-28, no. 9, pp. 690-691, Sept. 1979](https://doi.org/10.1109/TC.1979.1675439) [PDF](https://www.microsoft.com/en-us/research/uploads/prod/2016/12/How-to-Make-a-Multiprocessor-Computer-That-Correctly-Executes-Multiprocess-Programs.pdf)
 * [*A Primer on Memory Consistency and Cache Coherence* Daniel J. Sorin et al. (2011)](https://doi.org/10.1007/978-3-031-01733-9) [PDF](https://course.ece.cmu.edu/~ece847c/S15/lib/exe/fetch.php?media=part2_2_sorin12.pdf)
 * [*Revising the C++ memory model* (P0668R5)](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0668r5.html)
+* [*Analyzing the memory ordering models of the Apple M1* Lars Wrenger et al. (2024)](https://doi.org/10.1016/j.sysarc.2024.103102)
+* [*How emulation works on Arm* (Windows 11 24H2's emulator Prism)](https://learn.microsoft.com/en-us/windows/arm/apps-on-arm-x86-emulation), see also [Visual Studio 2019's /volatileMetadata](https://learn.microsoft.com/en-us/cpp/build/reference/volatile?view=msvc-170)
+* [*Memory consistency and event ordering in scalable shared-memory multiprocessors* Kourosh Gharachorloo et al. (1990)](https://doi.org/10.1145/325096.325102)
 
 ## Talks
 
