@@ -1,8 +1,10 @@
 #pragma once
 #include <atomic>
 
-// The assembly generated for the two versions is basically the same:
-// https://godbolt.org/z/zPTe3cW8G
+// The assembly generated for the first two versions is basically the same:
+// https://godbolt.org/z/PbYnxec1M
+// Note that v3 with relaxed memory order on fail to acquire the lock
+// seems not to have any advantage on x86, ARM7, or ARM8
 
 class StupidSelfishSpinMutexBase {
 public:

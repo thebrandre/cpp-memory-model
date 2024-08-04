@@ -28,7 +28,7 @@ BENCHMARK_CAPTURE(BM_DekkersAlgorithm, DekkersAlgorithmFences, DekkersMutexFence
 #include <shared_mutex>
 #include <tbb/spin_mutex.h>
 
-template <typename MutexType> static void BM_Mutex(benchmark::State &State, MutexType &Mutex) {
+template <typename MutexType> static void BM_Mutex(benchmark::State &State, MutexType &&Mutex) {
   for ([[maybe_unused]] auto _ : State)
     std::scoped_lock Lock(Mutex);
 }
@@ -36,9 +36,11 @@ template <typename MutexType> static void BM_Mutex(benchmark::State &State, Mute
 static std::shared_mutex SharedMutex;
 static std::mutex RegularMutex;
 static tbb::spin_mutex TbbSpinMutex;
-static StupidSelfishSpinMutex SimpleMutex;
+static v2::StupidSelfishSpinMutex SimpleMutexV2;
+static v3::StupidSelfishSpinMutex SimpleMutexV3;
 
 BENCHMARK_CAPTURE(BM_Mutex, std::shared_mutex, SharedMutex)->ThreadRange(1, 32);
 BENCHMARK_CAPTURE(BM_Mutex, std::mutex, RegularMutex)->ThreadRange(1, 32);
 BENCHMARK_CAPTURE(BM_Mutex, tbb::spin_mutex, TbbSpinMutex)->ThreadRange(1, 32);
-BENCHMARK_CAPTURE(BM_Mutex, StupidSelfishSpinMutex, SimpleMutex)->ThreadRange(1, 32);
+BENCHMARK_CAPTURE(BM_Mutex, v2::StupidSelfishSpinMutex, SimpleMutexV2)->ThreadRange(1, 32);
+BENCHMARK_CAPTURE(BM_Mutex, v3::StupidSelfishSpinMutex, SimpleMutexV3)->ThreadRange(1, 32);
