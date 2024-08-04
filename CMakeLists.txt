@@ -24,6 +24,7 @@ target_sources(CppMemoryModel PUBLIC
     "DekkersAlgorithm.cpp"
     "DekkersAlgorithm.h"
     "MemoryFence.h"
+    "MutexConcept.h"
     "StupidSelfishMutex.h")
 
 if (WIN32)

@@ -6,6 +6,7 @@ target_sources(UnitTests
         "ConcurrentStackTest.cpp"
         "DekkersAlgorithmTest.cpp"
         "ProducerConsumerRace.cpp"
+        "MutexConceptTest.cpp"
         "TbbQueueTest.cpp")
 
 target_compile_features(UnitTests PRIVATE cxx_std_23)

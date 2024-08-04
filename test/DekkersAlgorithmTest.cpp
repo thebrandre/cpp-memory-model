@@ -1,4 +1,5 @@
 #include "DekkersAlgorithm.h"
+#include "MutexConcept.h"
 #include "StupidSelfishMutex.h"
 
 #include <catch2/catch_template_test_macros.hpp>
@@ -6,6 +7,7 @@
 #include <catch2/generators/catch_generators_range.hpp>
 
 #include <atomic>
+#include <concepts>
 #include <functional>
 #include <latch>
 #include <print>
@@ -14,7 +16,7 @@
 #include <thread>
 #include <vector>
 
-template <typename MutexType> struct MutexWrapper {
+template <MutexConcept MutexType> class MutexWrapper {
 private:
   MutexType Mutex;
 
