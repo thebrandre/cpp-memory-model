@@ -10,7 +10,8 @@
 * [Message passing with release-acquire ordering](https://godbolt.org/z/4hbK7dx7K)
 * [Spinlock mutex](https://godbolt.org/z/zddsM5P3h)
 * [How memory order maps to x86-64 and ARM64 assembly](https://godbolt.org/z/oTff5aY67)
-* [Sequential consistency: Dekker's algorithm simplified (This demo intentionally fails due to weak/release-acquire order!)](https://godbolt.org/z/oe3svbWv1)
+* [Sequential consistency: Dekker's algorithm simplified](https://godbolt.org/z/oe3svbWv1) **This demo intentionally fails due to weak/release-acquire order!**
+* [Sequential consistency: Dekker's algorithm simplified even further](https://godbolt.org/z/Ee8fo47TM) **This demo times out if it does not detect a violation with weak/release-acquire order!**
 
 ### Exercise: producer-consumer communication
 
@@ -27,6 +28,7 @@
 * [How memory order may prevent auto vectorization](https://godbolt.org/z/31W9P8Y36)
 * [Might fail in relaxed ordering (but not in x86's *total store order model*)](https://godbolt.org/z/99xfvfjP3) -- [at least one of the reader threads needs to fire](https://godbolt.org/z/n4d8f8ca5)
 * [atomic min/max in x86-64](https://godbolt.org/z/PjKjvfnGe) or [maybe weaker (no difference on x86)?](https://godbolt.org/z/r8TMzjea5)
+* [sequential inconsistency](https://godbolt.org/z/abEYbsTcv): 
 
 ## Resources
 
@@ -63,6 +65,10 @@
 * [*Analyzing the memory ordering models of the Apple M1* Lars Wrenger et al. (2024)](https://doi.org/10.1016/j.sysarc.2024.103102)
 * [*How emulation works on Arm* (Windows 11 24H2's emulator Prism)](https://learn.microsoft.com/en-us/windows/arm/apps-on-arm-x86-emulation), see also [Visual Studio 2019's /volatileMetadata](https://learn.microsoft.com/en-us/cpp/build/reference/volatile?view=msvc-170)
 * [*Memory consistency and event ordering in scalable shared-memory multiprocessors* Kourosh Gharachorloo et al. (1990)](https://doi.org/10.1145/325096.325102)
+* [*Promising 2.0: global optimizations in relaxed memory concurrency* Sung-Hwan Lee et al. (2020)](https://doi.org/10.1145/3385412.3386010)
+* [*High context switch rate*, learn.microsoft.com](https://learn.microsoft.com/en-us/gaming/gdk/_content/gc/system/overviews/finding-threading-issues/high-context-switches)
+* [*Measuring context switching and memory overheads for Linux threads*, Eli Bendersky (2018)](https://eli.thegreenplace.net/2018/measuring-context-switching-and-memory-overheads-for-linux-threads/)
+
 
 ## Talks
 
@@ -77,3 +83,7 @@
 * [Pavel Yosifovich *Concurrency and the C++ Memory Model*](https://youtu.be/NZ_ncor_Lj0)
 * [CppCon 2020: Paul E. McKenney & Hans Boehm *A Relaxed Guide to memory_order_relaxed*](https://youtu.be/cWkUqK71DZ0)
 * [CppCon 2016: JF Bastien *No Sane Compiler Would Optimize Atomics*](https://youtu.be/IB57wIf9W1k)
+* [code::dive 2019: Yossi Moalem *Cache consistency and the C++ memory model*](https://youtu.be/Sa08x_NMZIg)
+* [FOWM'24: Stephen Dolan *Why Languages Should Preserve Load-Store Order*](https://youtu.be/cILLfXBBITg)
+* [FOWM'24: Hans-J. *Boehm What we learned from C++ atomics and memory model standardization*](https://youtu.be/Ss7gIs2-hzk)
+* [Hydra 2022: Ori Lahav *Weak memory concurrency in C/C++11*](https://youtu.be/mOqu8vGSysc)
