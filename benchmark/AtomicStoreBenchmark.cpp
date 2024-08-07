@@ -48,3 +48,45 @@ static void BM_AtomicStoreFenced(benchmark::State &State) {
 }
 
 BENCHMARK(BM_AtomicStoreFenced)->RangeMultiplier(2)->Range(ItemRangeBegin, ItemRangEnd)->Complexity(benchmark::o1);
+
+static void BM_AtomicStoreThreadLocal(benchmark::State &State) {
+  const int NumItems = static_cast<int>(State.range(0));
+  thread_local int ThreadLocalVariable{};
+
+  for (auto _ : State) {
+    for (const auto i : std::views::iota(0, NumItems)) {
+      ThreadLocalVariable += i;
+    }
+    ::benchmark::DoNotOptimize(ThreadLocalVariable);
+  }
+
+  State.SetComplexityN(State.range(0));
+  State.counters["duration_per_operation"] = benchmark::Counter(
+      static_cast<double>(State.range(0)), benchmark::Counter::kIsIterationInvariantRate | benchmark::Counter::kInvert);
+}
+
+BENCHMARK(BM_AtomicStoreThreadLocal)->RangeMultiplier(2)->Range(ItemRangeBegin, ItemRangEnd)->Complexity(benchmark::o1);
+
+#include <tbb/combinable.h>
+
+static void BM_AtomicStoreTbbCombinable(benchmark::State &State) {
+  const int NumItems = static_cast<int>(State.range(0));
+  tbb::combinable<int> CombinableVariable{};
+
+  for (auto _ : State) {
+    int& ThreadLocalReference = CombinableVariable.local();
+    for (const auto i : std::views::iota(0, NumItems)) {
+      ThreadLocalReference += i;
+    }
+    ::benchmark::DoNotOptimize(CombinableVariable.combine(std::plus{}));
+  }
+
+  State.SetComplexityN(State.range(0));
+  State.counters["duration_per_operation"] = benchmark::Counter(
+      static_cast<double>(State.range(0)), benchmark::Counter::kIsIterationInvariantRate | benchmark::Counter::kInvert);
+}
+
+BENCHMARK(BM_AtomicStoreTbbCombinable)
+    ->RangeMultiplier(2)
+    ->Range(ItemRangeBegin, ItemRangEnd)
+    ->Complexity(benchmark::o1);
